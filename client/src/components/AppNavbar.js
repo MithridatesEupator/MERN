@@ -7,7 +7,7 @@ import {
     Nav,
     NavItem,
     NavLink,
-    Containers
+    Container
 } from 'reactstrap';
 
 class AppNavbar extends Component {
@@ -20,6 +20,30 @@ class AppNavbar extends Component {
             isOpen: !this.state.isOpen
         });
     }
+    
+    render() {
+        return (
+        <div>
+            <Navbar light expand="sm" className="mb-5" className="navbar-custom">
+                <Container>
+                    <NavbarBrand href="/"> 
+                        Shopping List
+                    </NavbarBrand>
+                    <NavbarToggler onClick={this.toggle} />
+                    <Collapse isOpen={this.state.isOpen} navbar>
+                        <Nav className="hover-custom" className="ml-auto" navbar>
+                            <NavItem>
+                                <NavLink className="hover-custom" href="https://youtube.com">
+                                    Youtube
+                                </NavLink>
+                            </NavItem>
+                        </Nav>
+                    </Collapse>
+                </Container>
+            </Navbar>
+        </div>
+        );
+    }
 }
 
-export default appNavbar;
+export default AppNavbar;
