@@ -24,7 +24,7 @@ class AppNavbar extends Component {
     render() {
         return (
         <div>
-            <Navbar light expand="sm" className="mb-5" className="navbar-custom">
+            <Navbar light expand="sm" className="mb-5" className="navbar-custom" > 
                 <Container>
                     <NavbarBrand href="/"> 
                         Shopping List
