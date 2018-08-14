@@ -14,24 +14,24 @@ class AppNavbar extends Component {
     state = {
             isOpen: false
     }
-    
+
     toggle = () => {
         this.setState({
             isOpen: !this.state.isOpen
         });
     }
-    
+
     render() {
         return (
         <div>
-            <Navbar light expand="sm" className="mb-5" className="navbar-custom" > 
+            <Navbar light expand="sm" className="mb-5 navbar-custom" >
                 <Container>
-                    <NavbarBrand href="/"> 
+                    <NavbarBrand href="/">
                         Shopping List
                     </NavbarBrand>
                     <NavbarToggler onClick={this.toggle} />
                     <Collapse isOpen={this.state.isOpen} navbar>
-                        <Nav className="hover-custom" className="ml-auto" navbar>
+                        <Nav className="hover-custom ml-auto" navbar>
                             <NavItem>
                                 <NavLink className="hover-custom" href="https://youtube.com">
                                     Youtube

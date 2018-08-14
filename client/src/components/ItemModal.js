@@ -11,51 +11,46 @@ import {
 } from 'reactstrap';
 import { connect } from 'react-redux';
 import { addItem } from '../actions/itemActions';
-import uuid from 'uuid';
 import "../App.css";
 
 class ItemModal extends Component {
-    state = { 
+    state = {
         modal: false,
         name:  ''
     }
-    
+
     toggle = () => {
         this.setState({
-           modal: !this.state.modal 
+           modal: !this.state.modal
         });
     }
-    
+
     onChange = (e) => {
         this.setState({ [e.target.name]: e.target.value });
     }
-    
+
     onSubmit = (e) => {
         e.preventDefault();
-        
         const newItem = {
-            id: uuid(),
             name: this.state.name
         }
-        
         this.props.addItem(newItem);
-        
         this.toggle();
     }
-    
+
     render() {
         return(
             <div>
-                <Button className="submit-btn" onClick={this.toggle}> 
+                <Button className="submit-btn" onClick={this.toggle}>
                 Add Item
                 </Button>
-                <Modal isOpen={this.state.modal} toggle={this.toggle}>
-                    <ModalHeader toggle={this.toggle}>
+                <Modal isOpen={this.state.modal} toggle={this.toggle} className='pop-up'>
+                    <ModalHeader toggle={this.toggle} className="pop-up-header">
                     </ModalHeader>
-                    <ModalBody>
+                    <ModalBody className="pop-up-body">
                         <Form onSubmit={this.onSubmit}>
                             <FormGroup>
-                                <Label for="item"> 
+                                <Label for="item">
                                     Item
                                 </Label>
                                 <Input type="text" name="name" id="item" placeholder="Add shopping item" onChange={this.onChange} style={{marginBottom:'2rem'}}/>
